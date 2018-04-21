@@ -36,10 +36,10 @@ class Snake {
 		this.direction = [0, 0];
 	}
 
-	check() {
+	check(x, y) {
 		for (let i = 2; i < this.tail.length; i++) {
 			if (this.x === this.tail[i].x && this.y === this.tail[i].y) {
-				this.death();
+				this.death(x, y);
 			}
 		}
 	}
