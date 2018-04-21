@@ -39,7 +39,7 @@ function draw() {
 		scoreDisplay.style('font-family', 'monospace');
 		scoreDisplay.style('font-size', '3em');
 	}
-	snake.check();
+	snake.check(floor(ROWS / 2) * CELL, floor(COLS / 2) * CELL, CELL);
 	if (snake.eat(food)) {
 		removeElements();
 		while (snake.inTail(food.x, food.y)) {
