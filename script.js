@@ -1,6 +1,6 @@
-let COLS = 19;
-let ROWS = 19;
-let CELL = 40;
+const COLS = 19;
+const ROWS = 19;
+const CELL = 40;
 let snake;
 let food;
 let score = 0;
@@ -28,7 +28,7 @@ function draw() {
 			rect(i * CELL, j * CELL, CELL, CELL);
 		}
 	}
-	if (snake.x < 0 || snake.x === width || snake.y < 0 || snake.y === height) {
+	if (snake.x < 0 || snake.x === width || snake.y < 0 || snake.y === height || snake.check()) {
 		removeElements();
 		snake.death(floor(ROWS / 2) * CELL, floor(COLS / 2) * CELL);
 		direction = [0, 0];
@@ -39,7 +39,6 @@ function draw() {
 		scoreDisplay.style('font-family', 'monospace');
 		scoreDisplay.style('font-size', '3em');
 	}
-	snake.check(floor(ROWS / 2) * CELL, floor(COLS / 2) * CELL, CELL);
 	if (snake.eat(food)) {
 		removeElements();
 		while (snake.inTail(food.x, food.y)) {
